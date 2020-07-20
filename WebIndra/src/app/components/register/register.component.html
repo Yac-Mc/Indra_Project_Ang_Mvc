@@ -1,0 +1,36 @@
+<div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group col-6">
+            <label for="user">Usuario <span>*</span></label>
+            <input type="text" formControlName="UserName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }" id="user" placeholder="Ingrese Usuario">
+            <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
+                <small *ngIf="f.UserName.errors.required">Introduzca nombre del usuario</small>
+                <small *ngIf="f.UserName.errors.pattern">No se permiten caracteres especiales</small>
+                <small *ngIf="f.UserName.value.length > 0 && f.UserName.errors.spaces">No se permiten campos vacios</small>
+                <small *ngIf="f.UserName.errors.maxlength">El nombre de usuario no debe superar los 100 caracteres </small>
+                <small *ngIf="f.UserName.errors.name">El usuario no es válido</small>
+            </div>
+        </div>
+        <div class="form-group col-6">
+            <label for="limit">Limite <span>*</span></label>
+            <input type="number" formControlName="Limit" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Limit.errors }" id="limit" placeholder="Ingrese Limite">
+            <div *ngIf="submitted && f.Limit.errors" class="invalid-feedback">
+                <small *ngIf="f.Limit.errors.required">Introduzca el limite</small>
+                <small *ngIf="f.Limit.errors.min">El valor debe ser superior a 0</small>
+                <small *ngIf="f.Limit.errors.max">El valor no debe ser mayor a 99999 </small>
+            </div>
+        </div>
+        <div class="col-6" style="text-align: center;">
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </div>
+    </form>
+    <div *ngIf="flagResult" class="col-6" style="text-align: center;">
+        <hr>
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-header">Resultado</div>
+            <div class="card-body">
+                <h5 class="card-title">{{result}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+    <form [formGroup]="queryForm" (ngSubmit)="onSubmit()">
+        <div class="form-group col-6">
+            <label for="user">Usuario</label>
+            <input type="text" formControlName="UserName" class="form-control" id="user" placeholder="Ingrese Usuario">
+            <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
+                <small *ngIf="f.UserName.errors.pattern">No se permiten caracteres especiales</small>
+                <small *ngIf="f.UserName.value.length > 0 && f.UserName.errors.spaces">No se permiten campos vacios</small>
+                <small *ngIf="f.UserName.errors.maxlength">El nombre de usuario no debe superar los 100 caracteres </small>
+            </div>
+        </div>
+        <div class="form-group col-6">
+            <label for="resMin">Respuesta (Mínima)</label>
+            <input type="number" formControlName="ResMin" class="form-control" id="limit" placeholder="Mínima">
+        </div>
+        <div class="form-group col-6">
+            <label for="resMax">Respuesta (Máxima)</label>
+            <input type="number" formControlName="ResMax" class="form-control" id="limit" placeholder="Máxima">
+        </div>
+        <div class="col-6" style="text-align: center;">
+            <button type="submit" class="btn btn-primary">Consultar</button>
+        </div>
+    </form>
+    <div *ngIf="flagResult" class="col-6" style="text-align: center;">
+        <hr>
+        <table id="response">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Respuesta</th>
+                    <th>Fecha y Hora</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of resultQuery">
+                    <td>{{item.UserName}}</td>
+                    <td>{{item.Response}}</td>
+                    <td>{{item.DateResponse | date:"dd/MM/yyyy HH:mm:ss"}}</td>
+                    <td><button type="submit" class="btn btn-danger" (click)="deleteRegister(item.Id)">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

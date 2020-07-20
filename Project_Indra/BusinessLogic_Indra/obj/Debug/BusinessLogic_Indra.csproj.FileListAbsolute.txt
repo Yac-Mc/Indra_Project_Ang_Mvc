@@ -1,0 +1,12 @@
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\bin\Debug\BusinessLogic_Indra.dll
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\bin\Debug\BusinessLogic_Indra.pdb
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\bin\Debug\DataAccess_Indra.dll
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\bin\Debug\EntityFramework.dll
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\bin\Debug\DataAccess_Indra.pdb
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\bin\Debug\DataAccess_Indra.dll.config
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\bin\Debug\EntityFramework.xml
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\obj\Debug\BusinessLogic_Indra.csproj.CoreCompileInputs.cache
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\obj\Debug\BusinessLogic_Indra.csproj.CopyComplete
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\obj\Debug\BusinessLogic_Indra.dll
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\obj\Debug\BusinessLogic_Indra.pdb
+D:\Prueba_Indra\Project_Indra\BusinessLogic_Indra\obj\Debug\BusinessLogic_Indra.csprojAssemblyReference.cache

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YacModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="UserResponse" Relationship="Self.FK_UserId" FromRole="User" ToRole="UserResponse" />
+  </EntityType>
+  <EntityType Name="UserResponse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUser" Type="Int32" />
+    <Property Name="Response" Type="Int32" Nullable="false" />
+    <Property Name="DateResponse" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UserId" FromRole="UserResponse" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_UserId">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserResponse" Type="Self.UserResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserResponse">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="YacEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="UserResponse" EntityType="Self.UserResponse" />
+    <AssociationSet Name="FK_UserId" Association="Self.FK_UserId">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserResponse" EntitySet="UserResponse" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

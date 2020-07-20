@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Indra_ModelStoreContainer" CdmEntityContainer="IndraEntities">
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="Indra_Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserResponse">
+      <EntityTypeMapping TypeName="Indra_Model.UserResponse">
+        <MappingFragment StoreEntitySet="UserResponse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="DateResponse" ColumnName="DateResponse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
